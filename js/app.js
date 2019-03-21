@@ -29,7 +29,7 @@ $(document).ready(function () {
         btnSend.removeClass("btn-outline-info").addClass("btn-outline-warning");
 
         $.ajax({
-            url: 'http://localhost:8000/add.php',
+            url: 'http://localhost:8000/Get-Cars.PHP/add.php',
             type: 'post',
             data: {
                 'name': $("#name").val(),
@@ -41,6 +41,10 @@ $(document).ready(function () {
             console.log
                 (DATE);
             btnSend.removeClass("btn-outline-warning").addClass("btn-outline-info").val("Enviar");
+            $("#name").val('');
+            $("#models").val('');
+            $("#date1").val('');
+            $("#date2").val('');
         });
     });
 
@@ -56,7 +60,7 @@ $(document).ready(function () {
 
         $.ajax(
             {
-                url: 'http://localhost:8000/Search.php',
+                url: 'http://localhost:8000/Get-Cars.PHP/Search.php',
                 type: 'post',
                 data:
                 {
@@ -75,20 +79,23 @@ $(document).ready(function () {
     });
 
 
-    
+
     setInterval(getHour, 1000);
 });
 var divdestiny = $('#divDestiny');
 var setdestiny = $('#setDestiny');
-divdestiny.css({ 'top': '38%', 'left': '50%' });
-function Destiny(id)
-{
-    var namedb=$('#nameDB'+id).html();
-    var modeldb=$("#modelDB"+id).html();
-    var date1db=$("#date1DB"+id).html();
-    var date2db=$('#date2DB'+id).html();   
-    divdestiny.animate({'opacity':1},1500);
-  setdestiny.html("Name: "+namedb+" model: "+modeldb+" Sdate: "+date1db+' Edate: '+date2db);
+function Destiny(id) {
+    divdestiny.css({ 'top': '36%', 'left': '24%' }).removeClass("d-none");
+    var namedb = $('#nameDB' + id).html();
+    var modeldb = $("#modelDB" + id).html();
+    var date1db = $("#date1DB" + id).html();
+    var date2db = $('#date2DB' + id).html();
+    divdestiny.animate({ 'opacity': 1 }, 1500);
+    setdestiny.html("<span class='btn btn-outline-primary' style='position: relative;left: 93%;cursor:pointer;' onclick=exit()>X</span><tr><td>Name: " + namedb + " </td></tr><tr><td>model: " + modeldb + "</td></tr> <tr><td>Sdate:" + date1db + ' </td></tr> <tr><td>Edate: ' + date2db + "</td></tr>");
 
- 
+
+}
+
+function exit() {
+    divdestiny.addClass('d-none');
 }
