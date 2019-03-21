@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var load=$('#load').hide();
+    var load = $('#load').hide();
     $('body').removeClass('bg-primary');
     $("#body").removeClass("d-none");
     function getHour() {
@@ -29,7 +29,7 @@ $(document).ready(function () {
         btnSend.removeClass("btn-outline-info").addClass("btn-outline-warning");
 
         $.ajax({
-            url: 'http://localhost/Get-Cars.php/add.php',
+            url: 'http://localhost:8000/add.php',
             type: 'post',
             data: {
                 'name': $("#name").val(),
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
         $.ajax(
             {
-                url: 'http://localhost/Get-Cars.php/Search.php',
+                url: 'http://localhost:8000/Search.php',
                 type: 'post',
                 data:
                 {
@@ -70,11 +70,25 @@ $(document).ready(function () {
 
                 searchBTN.removeClass("btn-outline-danger").addClass("btn-outline-success").html("SEARCH");
 
-                console.log(DATE);
+                // console.log(DATE);
             });
     });
 
 
-
+    
     setInterval(getHour, 1000);
 });
+var divdestiny = $('#divDestiny');
+var setdestiny = $('#setDestiny');
+divdestiny.css({ 'top': '38%', 'left': '50%' });
+function Destiny(id)
+{
+    var namedb=$('#nameDB'+id).html();
+    var modeldb=$("#modelDB"+id).html();
+    var date1db=$("#date1DB"+id).html();
+    var date2db=$('#date2DB'+id).html();   
+    divdestiny.animate({'opacity':1},1500);
+  setdestiny.html("Name: "+namedb+" model: "+modeldb+" Sdate: "+date1db+' Edate: '+date2db);
+
+ 
+}
