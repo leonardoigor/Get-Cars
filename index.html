@@ -8,6 +8,7 @@
     <!-- bootstrap end -->
     <script src="./js/jquery.js"></script>
     <link rel="stylesheet" href="./css/load.css">
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,9 +21,9 @@
         <div></div>
         <div></div>
         <div></div>
-        
+
     </div>
-    
+
     <div class='d-none' id='body'>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <a class="nav-brand h-100">Loidy Cars</a>
@@ -31,8 +32,8 @@
             </div>
             <ul class="navbar-nav ml-auto">
                 <form action="" class="form-inline mt-2 mt-lg-0">
-                    <input type="search" name="" id="searchInput" class="form-control mr-sm-2" placeholder="Search" your=""
-                    task="">
+                    <input type="search" name="" id="searchInput" class="form-control mr-sm-2" placeholder="Search"
+                        your="" task="">
                     <button type="submit" id="btn-search" class="btn btn-outline-success mt-sm-0 "
                         title="click to Search">Search</button>
                 </form>
@@ -41,16 +42,18 @@
         <div class="container">
             <div class="col  mt-4">
                 <form class="form-inline mt-lg-0 d-flex justify-content-center form-row">
-                    <input type="search" name="" id="name" class="form-control border mr-4" placeholder="Search for Cars">
+                    <input type="search" name="" id="name" class="form-control border mr-4"
+                        placeholder="Search for Cars">
                     <input type="text" name="" id="models" class="form-control border mr-4" placeholder="Models">
                     <input type="date" name="" id="date1" class="w-25 form form-control border bg-light mr-4">
                     <input type="date" name="" id="date2" class="form-control border w-25 mr-4">
-                    <input type="submit" id="btn-send" value="Enviar" class="btn btn-outline-info">
+                    <input type="text" id="money" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Cost of veicule"/>
+                    <input type="submit" id="btn-send" value="Send" class="btn btn-outline-info">
                 </form>
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table">
+                    <table class="table text-success">
                         <tr>
                             <td>ID</td>
                             <td>NAME</td>
@@ -59,19 +62,23 @@
                             <td>End date</td>
                         </tr>
                     </table>
-                    <table class="table" id="table">
-    
+                    <table class="table text-info" id="table">
+
                     </table>
                 </div>
             </div>
         </div>
-        <div  class="alert alert-dark  w-50 hr position-absolute fade d-none" id="divDestiny">
-            <table class="table" id="setDestiny">
-                
+        <div class="alert alert-dark  w-50 hr position-absolute fade d-none" id="divDestiny">
+            <table class="table text-info" id="setDestiny">
+
             </table>
         </div>
-        
+
     </div>
+    <!-- <input type="text" name="telefone" class="telefone form-control" placeholder="(17) 9 9173-3578" />
+    <label for="dinheiro">R$</label>
+    <input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block"/>
+    <input type="text" id="estado" name="estado" class="estado form-control" placeholder="UF" /> -->
     <script src="./js/app.js"></script>
 </body>
 

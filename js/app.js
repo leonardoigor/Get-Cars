@@ -25,7 +25,7 @@ $(document).ready(function () {
     $("#btn-send").click(function (e) {
         e.preventDefault();
         var btnSend = $("#btn-send");
-        btnSend.val("Enviando...");
+        btnSend.val("Sending...");
         btnSend.removeClass("btn-outline-info").addClass("btn-outline-warning");
 
         $.ajax({
@@ -35,16 +35,17 @@ $(document).ready(function () {
                 'name': $("#name").val(),
                 'models': $("#models").val(),
                 'date1': $("#date1").val(),
-                "date2": $("#date2").val()
+                "date2": $("#date2").val(),
+                "cost":$("#money").val()
             }
         }).done(function (DATE) {
-            console.log
-                (DATE);
-            btnSend.removeClass("btn-outline-warning").addClass("btn-outline-info").val("Enviar");
+            alert(DATE);
+            btnSend.removeClass("btn-outline-warning").addClass("btn-outline-info").val("Send");
             $("#name").val('');
             $("#models").val('');
             $("#date1").val('');
             $("#date2").val('');
+            $("#money").val('');
         });
     });
 
@@ -74,11 +75,13 @@ $(document).ready(function () {
 
                 searchBTN.removeClass("btn-outline-danger").addClass("btn-outline-success").html("SEARCH");
 
-                // console.log(DATE);
+                // alert(DATE);
             });
     });
 
-
+    $('.telefone').mask('(00) 0 0000-0000');
+    $('.dinheiro').mask('#.##0,00', {reverse: true});
+    $('.estado').mask('AA');
 
     setInterval(getHour, 1000);
 });
@@ -90,8 +93,9 @@ function Destiny(id) {
     var modeldb = $("#modelDB" + id).html();
     var date1db = $("#date1DB" + id).html();
     var date2db = $('#date2DB' + id).html();
+    var costdb=$("#costDB"+id).html();
     divdestiny.animate({ 'opacity': 1 }, 1500);
-    setdestiny.html("<span class='btn btn-outline-primary' style='position: relative;left: 93%;cursor:pointer;' onclick=exit()>X</span><tr><td>Name: " + namedb + " </td></tr><tr><td>model: " + modeldb + "</td></tr> <tr><td>Sdate:" + date1db + ' </td></tr> <tr><td>Edate: ' + date2db + "</td></tr>");
+    setdestiny.html("<span class='btn btn-outline-primary' style='position: relative;left: 93%;cursor:pointer;' onclick=exit()>X</span><tr><td>Name:  <span class=text-primary>" + namedb + "</span> </td></tr><tr><td>model: <span class=text-primary>" + modeldb + "</span> </td></tr> <tr><td>Sdate: <span class=text-primary>" + date1db + ' </td></tr> <tr><td>Edate: <span class=text-primary>' + date2db + "</span> </td></tr> <tr><td>Cost of veicule: <span class=text-primary>"+costdb+'</span>');
 
 
 }
@@ -99,3 +103,4 @@ function Destiny(id) {
 function exit() {
     divdestiny.addClass('d-none');
 }
+

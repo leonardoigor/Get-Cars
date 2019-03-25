@@ -21,6 +21,7 @@ $search = $_POST['search'];
         echo "<td id=modelDB".$id.">".$row['model']."</td>";
         echo "<td id=date1DB".$id.">".$row['date1']."</td>";
         echo "<td id=date2DB".$id.">".$row['date2']."</td>";
+        echo "<td id=costDB".$id." class=fade>".$row['cost']."</td>";
         echo "<td><button class='btn btn-outline-primary' title='Choose ".$row['name']."' onclick='Destiny($id)'>Choose</button></td>";
         echo "</tr>";
     }
